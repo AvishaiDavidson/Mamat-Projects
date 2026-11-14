@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/dist/${fileBasenameNoExtension}",
+            "args": [],
+            "cwd": "${fileDirname}",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "Build active C file"
+        },
+        {
+            "name": "Build",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "mkdir -p -- \"$BUILD_DIR/dist\" && /usr/bin/gcc -g -Wall -Wextra \"$BUILD_SOURCE\" -o \"$BUILD_DIR/dist/$BUILD_NAME\"",
+            "cwd": "${fileDirname}",
+            "env": {
+                "BUILD_DIR": "${fileDirname}",
+                "BUILD_SOURCE": "${file}",
+                "BUILD_NAME": "${fileBasenameNoExtension}"
+            }
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "process",
+            "label": "Build active C file",
+            "command": "/bin/bash",
+            "args": [
+                "-c",
+                "mkdir -p -- \"$1/dist\" && /usr/bin/gcc -g -Wall -Wextra \"$2\" -o \"$1/dist/$3\"",
+                "build-active-c",
+                "${fileDirname}",
+                "${file}",
+                "${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
