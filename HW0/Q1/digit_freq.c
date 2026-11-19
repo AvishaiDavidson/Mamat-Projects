@@ -10,8 +10,9 @@ int main() {
     char *string = malloc(1001 * sizeof(char));
     if (string != NULL) {
         scanf("%1000s", string);
+    } else {
+        return 0; // Return an error code if memory allocation fails
     }
-
     // calculat the frequency of each digit in the string
     int digit_freq[10] = {0}; // Initialize an array offrequencies
     for (int i = 0; string[i] != '\0'; i++) {
